@@ -1,0 +1,116 @@
+﻿<Page x:Class="WinRT.PopupAlignment.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:WinRT.PopupAlignment"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      RequestedTheme="Light"
+      mc:Ignorable="d">
+
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Background="DodgerBlue"
+                    Grid.Row="0">
+            <TextBlock Text="Aligning Popups in WinRT"
+                       FontSize="24"
+                       Padding="10" />
+        </StackPanel>
+        <StackPanel Grid.Row="1"
+                    Margin="10"
+                    VerticalAlignment="Top">
+
+            <TextBlock Text="Basic"
+                       Style="{StaticResource TitleTextBlockStyle}" />
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Default (0px)"
+                        Margin="10"
+                        Click="Default_Click" />
+
+                <Button Content="Offset (250px)"
+                        Margin="10"
+                        Click="Offset_Click" />
+            </StackPanel>
+
+            <TextBlock Text="Relative"
+                       Style="{StaticResource TitleTextBlockStyle}" />
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Bottom"
+                        Margin="10"
+                        Click="Relative_Click" />
+                
+                    <Button Content="Right (off screen)"
+                            Margin="10"
+                            Click="RelativeOffScreen_Click" />
+            </StackPanel>
+
+            <TextBlock Text="Auto Align"
+                       Style="{StaticResource TitleTextBlockStyle}" />
+            <Button Content="Right"
+                    Margin="10"
+                    HorizontalAlignment="Stretch"
+                    Click="RelativeAutoAlign_Click" />
+
+            <TextBlock Text="In the example above, it should open to the right. When the pop up opens to the right of the window (off screen), it is re-aligned to be up against the right of the screen."
+                       TextWrapping="Wrap"
+                       Style="{StaticResource TitleTextBlockStyle}" />
+        </StackPanel>
+        
+        <Popup x:Name="Popup1"
+               IsLightDismissEnabled="True">
+            <Border x:Name="PopupBorder"
+                    BorderBrush="LightSkyBlue"
+                    BorderThickness="2">
+                <Grid Background="LightSeaGreen">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0"
+                            BorderThickness="0"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Stretch">
+                        <Grid>
+                            <TextBlock Grid.Column="0"
+                                       HorizontalAlignment="Center"
+                                       Text="build"
+                                       FontWeight="SemiBold"
+                                       VerticalAlignment="Center"
+                                       Style="{StaticResource BodyTextBlockStyle}" />
+
+                        </Grid>
+                    </Button>
+                    <Button Grid.Row="1"
+                            BorderThickness="0"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Stretch">
+                        <Grid>
+                            <TextBlock Grid.Column="0"
+                                       HorizontalAlignment="Center"
+                                       Text="something"
+                                       FontWeight="SemiBold"
+                                       VerticalAlignment="Center"
+                                       Style="{StaticResource BodyTextBlockStyle}" />
+                        </Grid>
+                    </Button>
+                    <Button Grid.Row="2"
+                            BorderThickness="0"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Stretch">
+                        <Grid>
+                            <TextBlock Grid.Column="0"
+                                       HorizontalAlignment="Center"
+                                       Text="awesome"
+                                       FontWeight="SemiBold"
+                                       VerticalAlignment="Center"
+                                       Style="{StaticResource BodyTextBlockStyle}" />
+                        </Grid>
+                    </Button>
+                </Grid>
+            </Border>
+        </Popup>
+    </Grid>
+</Page>
